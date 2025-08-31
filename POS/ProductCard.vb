@@ -58,4 +58,18 @@
 
     End Sub
 
+
+    Private Sub ProductCard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AddHandler lblname.Click, AddressOf ForwardClick
+        AddHandler lblCategory.Click, AddressOf ForwardClick
+        AddHandler lblPrice.Click, AddressOf ForwardClick
+        AddHandler lblDescription.Click, AddressOf ForwardClick
+        AddHandler PictureBox1.Click, AddressOf ForwardClick
+    End Sub
+
+    Private Sub ForwardClick(sender As Object, e As EventArgs)
+        ' Raise the ProductCard click event even when a child control is clicked
+        Me.OnClick(e)
+    End Sub
+
 End Class
